@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                 final View rowView = inflater.inflate(R.layout.field, null);
                 root.addView(rowView, root.getChildCount() - 2);
-
                 //Log.v("countViews", String.valueOf(root.getChildCount()));
-
             }
         });
 
@@ -64,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
                         }
                         else
                             Toast.makeText(MainActivity.this, "Failed to insert into DB", Toast.LENGTH_LONG).show();
-//                    products.add(value);
                         Log.v("Values", " "+value);
                     }
                 }
