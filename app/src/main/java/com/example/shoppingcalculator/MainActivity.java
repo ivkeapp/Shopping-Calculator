@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View rowView = inflater.inflate(R.layout.field, null);
+                final View rowView = inflater.inflate(R.layout.field, root);
                 root.addView(rowView, root.getChildCount() - 2);
 
                 //Log.v("countViews", String.valueOf(root.getChildCount()));
@@ -48,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
 
                     View view = root.getChildAt(i);
                     EditText et_value = view.findViewById(R.id.name);
+                    boolean isInserted = false;
                     if(et_value!=null){
                         String value = et_value.getText().toString().trim();
-
-                        boolean isInserted = db.insertProduct(value);
-
+                        if(TextUtils.isEmpty(value)){
+                            et_value.setError("Unesi proizvod");
+                        } else {
+                            isInserted = db.insertProduct(value);
+                        }
                         if(isInserted) {
                             Toast.makeText(MainActivity.this, "Inserted to DB", Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(MainActivity.this, ProductsListActivity.class);
