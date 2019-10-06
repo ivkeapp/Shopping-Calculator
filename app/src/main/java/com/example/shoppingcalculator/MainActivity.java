@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                final View rowView = inflater.inflate(R.layout.field, root);
+                final View rowView = inflater.inflate(R.layout.field, null);
                 root.addView(rowView, root.getChildCount() - 2);
 
                 //Log.v("countViews", String.valueOf(root.getChildCount()));
