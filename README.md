@@ -5,4 +5,4 @@ Application for calculating prices of product list for shopping
 RecyclerView - Enhanced version of ListView library.
 
 ### About Application
-This application was developed in few hours. It serving as personal shopping list and calculator. Still in developing progress.
+This application was developed in a few hours. It serves as a personal shopping list and calculator. It uses SQLite for storing data and it ment to be used once per shopping without saving whole list. Still in developing progress.
